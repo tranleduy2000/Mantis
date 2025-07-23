@@ -441,7 +441,7 @@ extension CropViewController {
 }
 
 extension CropViewController: CropViewDelegate {    
-    func cropViewDidBecomeResettable(_ cropView: CropViewProtocol) {
+    public func cropViewDidBecomeResettable(_ cropView: CropViewProtocol) {
         cropToolbar.handleCropViewDidBecomeResettable()
         delegate?.cropViewControllerDidImageTransformed(self, transformation: cropView.makeTransformation())
         delegate?.cropViewController(self, didBecomeResettable: true)
@@ -465,12 +465,12 @@ extension CropViewController: CropViewDelegate {
         }
     }
     
-    func cropViewDidBecomeUnResettable(_ cropView: CropViewProtocol) {
+    public func cropViewDidBecomeUnResettable(_ cropView: CropViewProtocol) {
         cropToolbar.handleCropViewDidBecomeUnResettable()
         delegate?.cropViewController(self, didBecomeResettable: false)
     }
     
-    func cropViewDidBeginResize(_ cropView: CropViewProtocol) {
+    public func cropViewDidBeginResize(_ cropView: CropViewProtocol) {
         if config.enableUndoRedo {
             previousCropState = cropView.makeCropState()
         }
@@ -478,13 +478,13 @@ extension CropViewController: CropViewDelegate {
         delegate?.cropViewControllerDidBeginResize(self)
     }
     
-    func cropViewDidBeginCrop(_ cropView: CropViewProtocol) {
+    public func cropViewDidBeginCrop(_ cropView: CropViewProtocol) {
         if config.enableUndoRedo {
             previousCropState = cropView.makeCropState()
         }
     }
     
-    func cropViewDidEndResize(_ cropView: CropViewProtocol) {
+    public func cropViewDidEndResize(_ cropView: CropViewProtocol) {
         delegate?.cropViewControllerDidEndResize(self,
                                                  original: cropView.image,
                                                  cropInfo: cropView.getCropInfo())
