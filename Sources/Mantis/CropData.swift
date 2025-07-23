@@ -25,12 +25,12 @@
 import UIKit
 
 public struct CropState: Equatable {
-    var rotationType: ImageRotationType
-    var degrees: CGFloat
-    var aspectRatioLockEnabled: Bool
-    var aspectRato: CGFloat
-    var flipOddTimes: Bool
-    var transformation: Transformation
+    public var rotationType: ImageRotationType
+    public var degrees: CGFloat
+    public var aspectRatioLockEnabled: Bool
+    public var aspectRato: CGFloat
+    public var flipOddTimes: Bool
+    public var transformation: Transformation
     
     public static func == (lhs: CropState, rhs: CropState) -> Bool {
         return lhs.rotationType == rhs.rotationType
