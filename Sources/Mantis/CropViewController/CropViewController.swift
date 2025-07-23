@@ -34,14 +34,14 @@ open class CropViewController: UIViewController {
         }
     }
     
-    var cropView: CropViewProtocol! {
+    public var cropView: CropViewProtocol! {
         didSet {
             if config.cropToolbarConfig.toolbarButtonOptions.contains(.autoAdjust) {
                 imageAdjustHelper = ImageAutoAdjustHelper(image: cropView.image)
             }
         }
     }
-    var cropToolbar: CropToolbarProtocol!
+    public var cropToolbar: CropToolbarProtocol!
     private var imageAdjustHelper: ImageAutoAdjustHelper?
     
     private var ratioPresenter: RatioPresenter?
